@@ -1,0 +1,61 @@
+[workspace]
+members = [
+    "system-repository",
+    "context-repository",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["FIAP Domain Experts Team"]
+description = "Educational CLI system simulating domain experts using local LLMs"
+license = "MIT"
+
+[workspace.dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# HTTP client for Ollama
+reqwest = { version = "0.12", features = ["json", "stream"] }
+
+# Error handling
+thiserror = "2"
+anyhow = "1"
+
+# UUID generation
+uuid = { version = "1", features = ["v4", "serde"] }
+
+# Date/time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["json", "env-filter"] }
+
+# JSON Schema validation
+jsonschema = "0.29"
+
+# Async trait support
+async-trait = "0.1"
+
+# Regex for manipulation detection
+regex = "1"
+
+# File system operations
+tokio-stream = "0.1"
+
+# Testing
+proptest = "1"
+
+# TUI
+ratatui = "0.26"
+crossterm = { version = "0.27", features = ["event-stream"] }
+tui-input = "0.8"

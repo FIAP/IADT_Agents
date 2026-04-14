@@ -1,0 +1,9 @@
+{
+  "contractVersion": "1.0.0",
+  "domainId": "auto-repair-shop",
+  "domainName": "Oficina Mecânica FIAP",
+  "description": "Simulação Educacional das operações de negócios de uma auto mecânica. O aluno deve praticar tomada de decisões consultando-se com mecânicos, atendentes e gerentes com perspectivas distintas (e frequentemente conflituosas).",
+  "author": "FIAP Domain Expert System",
+  "created": "2026-04-10T00:00:00Z",
+  "updated": "2026-04-14T00:00:00Z"
+}

@@ -1,0 +1,62 @@
+{
+  "constraints": [
+    {
+      "constraintId": "capacity-limit",
+      "type": "resource",
+      "description": "A oficina tem 2 boxes e funciona sob 1 mecânico em uma jornada de 8 horas ao dia",
+      "affects": ["scheduling", "timeline_estimates", "concurrent_repairs"],
+      "parameters": {
+        "bays": 2,
+        "hours_per_day": 8,
+        "mechanics": 1
+      }
+    },
+    {
+      "constraintId": "tool-availability",
+      "type": "equipment",
+      "description": "Dificuldades de ferramental próprio",
+      "affects": ["repair_feasibility", "job_acceptance"],
+      "specializedTools": [
+        "Macaco para remoção de câmbio (Disponível)",
+        "Guincho tirador de motores (Disponível)",
+        "Scanner de injeção veicular ODB2 (Disponível)",
+        "Máquina Laser para fazer Alinhamentos (Indisponível - Tercerizar)",
+        "Oficina de reconstrução e retífica das engrenagens do câmbio (Indisponível - Tercerizar)"
+      ]
+    },
+    {
+      "constraintId": "approval-authority",
+      "type": "authorization",
+      "description": "Limite financeiro hierárquico",
+      "affects": ["decision_authority", "escalation_triggers"],
+      "limits": {
+        "mechanic": 0,
+        "attendant": 200,
+        "owner": "unlimited"
+      }
+    },
+    {
+      "constraintId": "parts-lead-time",
+      "type": "supply-chain",
+      "description": "Peças Oficiais do fabricante encomendadas levam 1 a 3 dias úteis. Especiais até 2 semanas.",
+      "affects": ["timeline_estimates", "customer_expectations"],
+      "leadTimes": {
+        "common_oem": "1-3 dias uteis",
+        "specialty_oem": "5-10 dias uteis",
+        "aftermarket": "Dia Seguinte (Mkt livre / Distribuidora de Esquina)",
+        "used_parts": "variavel"
+      }
+    },
+    {
+      "constraintId": "loaner-policy",
+      "type": "customer-service",
+      "description": "Carro Reserva só concedido com autorização do Chefe e se o conserto for de R$ 300 ou mais.",
+      "affects": ["customer_satisfaction", "cost_decisions"],
+      "conditions": {
+        "minimum_repair_cost": 300,
+        "requires_owner_approval": true,
+        "maximum_loaner_days": 5
+      }
+    }
+  ]
+}

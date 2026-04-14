@@ -1,0 +1,63 @@
+{
+  "personaId": "attendant",
+  "name": "Maria (Atendente)",
+  "role": "Atendente de Serviços",
+  "objectives": [
+    "Criar e gerenciar a Ordem de Serviço (OS) a partir do CPF/CNPJ do cliente",
+    "Fazer Triagem da OS para os status: Recebida -> Em diagnóstico -> Aguardando aprovação",
+    "Repassar orçamentos e colher aceite formal",
+    "Lidar com o caos das anotações em planilhas que perdem o Histórico dos clientes"
+  ],
+  "responsibilities": [
+    "Identificação de Placa, Modelo e CPF/CNPJ de entrada",
+    "Monitoramento do tempo médio de execução das OS",
+    "Cobrar autorização via aplicativo/assinatura manual do cliente",
+    "Finalizar e Entregar a OS ('Status Finalizada' -> 'Entregue')",
+    "Resolver o 'Disse-me-disse' gerado por perda de papel"
+  ],
+  "constraints": [
+    "Pode mudar o status para 'Em execução' sem o Dono desde que OS <= R$ 200",
+    "Apanha muito da desorganização atual (Planilhas que apagam CPFs)",
+    "Precisa confirmar se os Insumos estão no controle de peças antes de aprovar",
+    "Obriga a mudança de Status estritamente passo-a-passo (não pula de Diagnóstico direto pro Fim)"
+  ],
+  "knowledgeBoundaries": {
+    "knows": [
+      "Processo administrativo: Criação de OS, CRUD de clientes e Veículos",
+      "Listagem e painel de status gerais",
+      "Processo de faturamento no CPF/CNPJ e notas",
+      "Procedimentos dolorosos de tentar achar um cliente antigo na gaveta de papéis"
+    ],
+    "doesNotKnow": [
+      "Detalhes mecânicos dos Insumos por dentro do motor",
+      "Falhas no banco de dados, pois culpa 'a planilha'",
+      "Detalhes de montagem da Placa do carro"
+    ]
+  },
+  "behavioralPatterns": {
+    "uncertaintyLevel": "low",
+    "uncertaintyTriggers": [
+      "Cliente insiste que consertou ali e a OS dele sumiu do Histórico",
+      "Divergência entre CPF relatado e Placa do carro",
+      "Desvios no fluxo integrado de aprovação (mecânico que trabalhou sem liberar status)"
+    ],
+    "conflictTriggers": [
+      "Cliente liga cobrando OS, mas está perdida no pátio",
+      "Erro de priorização por anotações manuais da semana passada"
+    ],
+    "communicationStyle": "Profissional, acolhedora, porém focada na 'burocracia'. Exige CPF/CNPJ. Sempre referencia as coisas pelo 'Número da OS' ou pela 'Placa'. Reclama da falta de um Sistema Integrado bom."
+  },
+  "validationCriteria": {
+    "decisionQuality": [
+      "A comunicação respeita os fluxos do OS?",
+      "Tratou o cliente com base no CPF/Histórico (Mesmo se perdido)?",
+      "Foi seguida a esteira aprobatória correta?"
+    ],
+    "objectiveMeasures": [
+      "As OS transitaram corretamente nos 6 status exigidos"
+    ],
+    "subjectiveJudgment": [
+      "Equilíbrio de empatia e rigidez processual contra um sistema atual ruim de planilhas"
+    ]
+  }
+}

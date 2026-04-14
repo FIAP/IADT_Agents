@@ -1,0 +1,98 @@
+{
+  "problems": [
+    {
+      "problemId": "uncertain-diagnosis",
+      "name": "Uncertain Diagnosis",
+      "description": "Intermittent or unclear symptoms make definitive diagnosis difficult or impossible without extended observation",
+      "frequency": "common",
+      "affectedRoles": ["mechanic"],
+      "impacts": [
+        "Extended diagnostic time increases cost",
+        "Multiple repair attempts possible if root cause misidentified",
+        "Customer frustration with inconclusive initial report",
+        "Risk of unnecessary parts replacement"
+      ],
+      "typicalResponses": [
+        "Request extended test drive to reproduce the problem",
+        "Recommend monitoring with a scheduled follow-up",
+        "Propose phased diagnostic approach starting with most likely cause",
+        "Suggest leaving vehicle for a full day for observation"
+      ]
+    },
+    {
+      "problemId": "parts-unavailable",
+      "name": "Parts Unavailable",
+      "description": "Required parts are not in stock locally and must be ordered, causing repair delays",
+      "frequency": "occasional",
+      "affectedRoles": ["mechanic", "attendant"],
+      "impacts": [
+        "Repair timeline extends by days or weeks",
+        "Customer vehicle unavailable longer than expected",
+        "Potential need to consider aftermarket alternatives",
+        "Customer may seek service elsewhere"
+      ],
+      "typicalResponses": [
+        "Check alternative local suppliers for faster availability",
+        "Offer aftermarket part as temporary solution with customer consent",
+        "Provide loaner vehicle if available (subject to owner approval)",
+        "Give accurate timeline estimate and regular updates"
+      ]
+    },
+    {
+      "problemId": "cost-objection",
+      "name": "Customer Cost Objection",
+      "description": "Customer disagrees with the repair cost and pushes back on the estimate",
+      "frequency": "common",
+      "affectedRoles": ["attendant", "owner"],
+      "impacts": [
+        "Negotiation required before proceeding",
+        "Potential reduction in repair scope",
+        "Revenue loss risk if customer walks away",
+        "Risk of deferred critical repairs creating liability"
+      ],
+      "typicalResponses": [
+        "Explain repair necessity with specific technical justification",
+        "Offer phased repair plan prioritizing most critical items",
+        "Discuss payment plan options (subject to owner approval)",
+        "Provide detailed breakdown to show cost transparency"
+      ]
+    },
+    {
+      "problemId": "safety-refusal",
+      "name": "Customer Refuses Safety-Critical Repair",
+      "description": "Customer declines a repair that is critical for vehicle safety",
+      "frequency": "occasional",
+      "affectedRoles": ["mechanic", "attendant", "owner"],
+      "impacts": [
+        "Legal and liability risk for the shop",
+        "Ethical obligation to clearly communicate risk",
+        "Potential refusal to return vehicle without disclaimer"
+      ],
+      "typicalResponses": [
+        "Document the refusal in writing with customer signature",
+        "Clearly explain safety risks in non-technical language",
+        "Escalate to owner for final decision on liability acceptance",
+        "Offer to perform only non-critical repairs from the estimate"
+      ]
+    },
+    {
+      "problemId": "scope-creep",
+      "name": "Additional Problems Found During Repair",
+      "description": "Mechanic discovers additional problems not visible in the original diagnostic",
+      "frequency": "common",
+      "affectedRoles": ["mechanic", "attendant"],
+      "impacts": [
+        "Estimate changes after customer approval",
+        "Customer may feel surprised or misled",
+        "Additional approval cycle required before proceeding",
+        "Timeline extension"
+      ],
+      "typicalResponses": [
+        "Stop work and contact customer immediately",
+        "Explain what was found and why it was not visible initially",
+        "Provide updated estimate before proceeding",
+        "Prioritize additional work by urgency"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 1bf04f4b6e96b45272142503385fbaabddef9f3ec6d171ae3e5496af624ea9bc # shrinks to persona = PersonaDefinition { persona_id: "AA", name: "aA", role: "a_", objectives: ["Aa"], responsibilities: ["a"], constraints: ["a"], knowledge_boundaries: KnowledgeBoundaries { knows: ["a0"], does_not_know: ["AA"] }, behavioral_patterns: BehavioralPatterns { uncertainty_level: "moderate", uncertainty_triggers: ["a-"], conflict_triggers: ["A-"], communication_style: "a-" }, validation_criteria: ValidationCriteria { decision_quality: ["A"], objective_measures: ["AA"], subjective_judgment: ["AA"] } }, n_decisions = 1
