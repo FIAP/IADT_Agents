@@ -1,0 +1,54 @@
+{
+  "scenarioId": "parts-delay",
+  "name": "Crise de Insumos - Furo de Estoque",
+  "description": "Um Toyota Camry 2018 precisa ter suas velas trocadas. A planilha de controle manual da oficina acusou que havia Peças Originais (OEM) limitadas disponíveis hoje. O mecânico ativou o fluxo 'Em execução' mas descobriu que as peças VAZARAM do estoque (ou foram esquecidas de dar baixa). A cliente já está de carona pro trabalho aguardando e precisará da Ordem de Serviço concluída urgentemente.",
+  "learningObjectives": [
+    "Corrigir e intervir no caos da Falha de Controle de Insumos via planejamento",
+    "Comandar o pipeline de encadeamento de aprovação em cima da hora com a Atendente",
+    "Balancear as desvantagens de correr atrás de Peças Paralelas ou atrasar a OS finalizada",
+    "Absorver o escopo de segurança para não cobrar uma Ordem de Serviço sem ter executado a troca"
+  ],
+  "initialState": {
+    "os_status": "Em execução (Parada)",
+    "cpf_cnpj": "555.444.333-21",
+    "placa": "TYT-2018",
+    "vehicle_model": "Toyota Camry 2018, 120.000 km",
+    "reported_problem": "O motor perde a força - OS de Troca de Jogo de Velas Iridium iniciada",
+    "diagnosed_repair": "Substituição completa do jogo de ignição",
+    "estimated_cost": "R$ 900 (Peça OEM e Mão de Obra incluídas na OS)",
+    "customer_priority": "Carro é ferramenta de trabalho - Chegando para buscar às 18h",
+    "inventory_discrepancy": "A planilha de estoque marcava 4 peças. Na estante tinham 0. Desvio ou erro por não haver CRUD centralizado.",
+    "aftermarket_alternative": "Disponível na loja de Insumos da esquina, pior qualidade, precisa refazer o Orçamento",
+    "shop_capacity": "Ambos boxes lotados pelos próximos 3 dias"
+  },
+  "availableExperts": ["mechanic", "attendant", "owner"],
+  "triggeringEvents": [
+    {
+      "event": "missing_inventory",
+      "condition": "mechanic_execution_started",
+      "stateChange": "Mecânico pega OS, abre o capô, e volta furioso 15 minutos depois porque o 'Insumo sumiu' da estante."
+    },
+    {
+      "event": "customer_eta",
+      "condition": "aftermarket_suggested",
+      "stateChange": "Atendente atende ligação do cliente perguntando se pode vir na loja em 2 horas buscar o carro 'Pronto'"
+    },
+    {
+      "event": "owner_rage",
+      "condition": "owner_consulted",
+      "stateChange": "Dono percebe a falha financeira por falta de CRUD no estoque e nega perdas financeiras na garantia"
+    }
+  ],
+  "successCriteria": [
+    "Aluno identifica o gargalo sistêmico (Anotação solta X API Integrada)",
+    "Aluno transita a OS que estava 'Em Execução' de volta pra 'Aguardando Aprovação' antes de colocar peça exótica paralela",
+    "A alçada do mecânico se limita a barrar, mas a negociação ocorre via atendente",
+    "O dono aprova e absorve a lição da falta de um back-end sólido"
+  ],
+  "challenges": [
+    "Mentir para o cliente dizendo que o carro está pronto ou culpar o 'furo de estoque'?",
+    "Mecânico recusa usar marca diabo quando o cliente pagou $900 Original",
+    "Pausar o box do conserto destrói os lucros do dia",
+    "Atendente fica aterrorizada com a mentira estampada na OS desatualizada"
+  ]
+}

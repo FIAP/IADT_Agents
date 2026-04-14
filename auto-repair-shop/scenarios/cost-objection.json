@@ -1,0 +1,58 @@
+{
+  "scenarioId": "cost-objection",
+  "name": "Negociação Multi-Defeitos e Custos",
+  "description": "Uma Ordem de Serviço foi criada. O mecânico descobre múltiplos defeitos de segurança na OS limitados pelo baixo orçamento financeiro da cliente. O aluno deve navegar a negociação baseando-se no registro estruturado exigido pela oficina e obedecendo o status da OS.",
+  "learningObjectives": [
+    "Priorizar reparos via criticidade de segurança vs. conveniência no fluxo da OS",
+    "Navegar na negociação de custos mantendo preceitos de domínio íntegros",
+    "Entender a responsabilização da oficina através do Aceite Eletrônico da OS",
+    "Equilibrar CRUD de Insumos da loja vs Orçamento limitado",
+    "Transacionar o status para Aguardando Aprovação via escalonamento"
+  ],
+  "initialState": {
+    "os_status": "Em diagnóstico",
+    "cpf_cnpj": "123.456.789-00",
+    "placa": "ABC-1234",
+    "vehicle_model": "Ford F-150 2012, 180.000 km",
+    "requested_services": ["Troca de óleo de rotina"],
+    "insumos_estimated_list": [
+      {"item": "Pastilhas e rotores", "preço": 650, "prioridade": "CRÍTICO", "em_estoque": true},
+      {"item": "Correia", "preço": 280, "prioridade": "importante", "em_estoque": true},
+      {"item": "Filtro de ar", "preço": 85, "prioridade": "manutenção", "em_estoque": true}
+    ],
+    "total_estimate": 1800,
+    "customer_budget_limit": 400,
+    "customer_history": "N/D (Perdido nas planilhas de papel antigas)"
+  },
+  "availableExperts": ["mechanic", "attendant", "owner"],
+  "triggeringEvents": [
+    {
+      "event": "customer_shock",
+      "condition": "os_status_aguardando_aprovacao_reached",
+      "stateChange": "A OS pausa a Execução. O cliente recusa 80% dos insumos exigidos."
+    },
+    {
+      "event": "safety_obligation",
+      "condition": "mechanic_refusal",
+      "stateChange": "Mecânico alerta que a recusa do freio é imoral - ele trava a OS e não avança pro status Em Execucao"
+    },
+    {
+      "event": "owner_escalation",
+      "condition": "attendant_authorization_limit_reached",
+      "stateChange": "A atendente aciona o Dono pois o desconto extrapola sua alçada sistêmica"
+    }
+  ],
+  "successCriteria": [
+    "Aluno isolou Insumos Críticos com eficiência para faturamento na OS",
+    "Aluno coletou dados do Cliente obedecendo a Linguagem Ubíqua (Placa e CPF)",
+    "Aluno conseguiu destravar a OS e enviá-la para Em Execução de forma legalizada",
+    "Aluno colheu assinatura provisória de responsabilidade solidária",
+    "Aluno reportou corretamente as falhas via API/Simulador"
+  ],
+  "challenges": [
+    "Mecânico obstrui o fluxo baseando-se em qualidade intransigente",
+    "Dono restringe margens de abatimento",
+    "A Atendente tenta pular regras do Status pra resolver logo a briga",
+    "Risco de perda da venda se o orçamento reprovar 100%"
+  ]
+}

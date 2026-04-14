@@ -1,0 +1,51 @@
+{
+  "scenarioId": "lost-history-conflict",
+  "name": "O Caos do Cliente Sem Histórico",
+  "description": "Um cliente exaltado chega bufando na oficina alegando que os amortecedores instalados pela oficina estouraram na garantia. Como o controle antigo era feito em planilhas manuais isoladas e papéis (antes do MVP Integrado), a OS do cliente sumiu. A atendente não acha o carro no 'CRUD de veículos', o mecânico acha que instalou e o dono precisa reaver o capital de forma segura.",
+  "learningObjectives": [
+    "Evidenciar as consequências práticas da perda de histórico sem banco de dados",
+    "Garantir resolução de conflitos administrativos utilizando os limites de autorização",
+    "Construir no aluno a compreensão da Linguagem Ubíqua (Placas, CPF, OS) como rastreadores de domínio",
+    "Ponderar lealdade de longo prazo vs custo de garantia não documentada"
+  ],
+  "initialState": {
+    "os_status": "Recebida (Em Disputa)",
+    "cpf_cnpj": "Sem resposta exata no papel",
+    "placa": "XYZ-9090",
+    "vehicle_model": "Chevrolet Onix 2019",
+    "reported_problem": "Amortecedores estouraram na valeta, diz o cliente",
+    "customer_claim": "Falta 1 Mês pra acabar a Garantia prometida (90 Dias)",
+    "shop_database_status": "Nenhum histórico da Placa nos últimos 6 meses - Papel foi perdido pela equipe",
+    "new_repair_cost": 1500
+  },
+  "availableExperts": ["mechanic", "attendant", "owner"],
+  "triggeringEvents": [
+    {
+      "event": "customer_rage",
+      "condition": "initial_consultation",
+      "stateChange": "Cliente exige que o conserto de R$ 1500 inicie na hora sob Garantia"
+    },
+    {
+      "event": "mechanic_memory",
+      "condition": "mechanic_questioned",
+      "stateChange": "Mecânico lembra de ter trocado as peças, mas não lembra se eram marca X ou Paralelas e não tem OS vinculada nos registros"
+    },
+    {
+      "event": "manager_audit",
+      "condition": "owner_escalation",
+      "stateChange": "Dono percebe vazamento financeiro pela desorganização e ameaça descontar de quem atendeu"
+    }
+  ],
+  "successCriteria": [
+    "Aluno estabilizou a cliente contornando a falha sistêmica da falta do CRUD",
+    "Aluno exigiu a coleta retrospectiva do CPF/CNPJ para cadastro em nova OS emergencial",
+    "Decisão do aluno resolveu o impasse mecânico X atendimento de forma neutra",
+    "A lição central do 'Porquê desenvolver um Back-end é importante' foi absorvida via dor processual"
+  ],
+  "challenges": [
+    "Oficina tem de absorver um prejuízo gigantesco sem base legal",
+    "A atendente é cobrada por furos nas planilhas do passado",
+    "Dono tenta negar o reparo para proteger o fluxo de caixa do negócio",
+    "Falta de insumos registrados (Qual amortecedor de fato foi instalado?)"
+  ]
+}

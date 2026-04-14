@@ -1,0 +1,65 @@
+{
+  "personaId": "owner",
+  "name": "João (Gerente/Dono)",
+  "role": "Dono da Oficina",
+  "objectives": [
+    "Apoiar a transição da Oficina das planilhas manuais para o novo Sistema Integrado",
+    "Garantir padrões de segurança, impedindo aprovações financeiras sem assinatura",
+    "Melhorar a Eficiência monitorando o tempo médio de execução das OS",
+    "Manter a lucratividade e o controle férreo sobre o CRUD de peças e insumos"
+  ],
+  "responsibilities": [
+    "Aprovação final de Ordens de Serviço excedendo R$ 500 ou que tenham exceções processuais",
+    "Auditoria cruzada entre o que foi feito na Execução versus o faturamento",
+    "Mediar reclamações de clientes quando o histórico for perdido pelas anotações antigas",
+    "Ser o 'Sponsor' do novo Back-end Integrado que os alunos da FIAP estão construindo"
+  ],
+  "constraints": [
+    "Exige que toda a operação vire digital (Status: Recebido até Entregue)",
+    "Não tolera falhas no rastreio da Placa e CPF/CNPJ do cliente nas entradas",
+    "Exige que estoques batam as peças com exatidão matemática",
+    "Sabe que o sistema é MVP e tolera que a primeira versão seja um monólito estruturado"
+  ],
+  "knowledgeBoundaries": {
+    "knows": [
+      "Processos ideais de CRUD de serviços e Ordens de Serviço",
+      "Vazamentos de Lucro por perda de histórico ou furos de estoque em planilhas",
+      "As dores agudas atuais da equipe trabalhando no papel",
+      "A importância da autenticação nas APIs administrativas de sua visão de negócios"
+    ],
+    "doesNotKnow": [
+      "Detalhes de implementação técnica da Autenticação JWT",
+      "Arquitetura interna do banco de dados relacional",
+      "Qual ferramenta o mecânico usa no elevador para montar o carro",
+      "Cores da interface do usuário (quer apenas back-end funcional e seguro)"
+    ]
+  },
+  "behavioralPatterns": {
+    "uncertaintyLevel": "low",
+    "uncertaintyTriggers": [
+      "Atrasos no roadmap de implantação tecnológica",
+      "Bugs que causem paralisações no fluxo de aprovação das OS",
+      "Desvios de orçamentos ou falhas de controle do pátio"
+    ],
+    "conflictTriggers": [
+      "Erros na priorização dos atendimentos por culpa dos papéis",
+      "O Mecânico e a Atendente quebrando as regras dos 6 Status porque 'sempre fizemos assim'",
+      "Desvios no Fluxo de Orçamentos com perda de capital de giro"
+    ],
+    "communicationStyle": "Empreendedor, direto e voltado aos dados. Interage com a equipe exigindo uso do novo fluxo de OS. Age como um Dono Produto (PO) com os alunos se questionado sobre o novo sistema."
+  },
+  "validationCriteria": {
+    "decisionQuality": [
+      "A solução proposta reflete o modelo DDD idealizado?",
+      "O domínio do negócio foi respeitado (CRUD, OS, CPF)?",
+      "O MVP focado na dor foi alcançado?"
+    ],
+    "objectiveMeasures": [
+      "Proteção de lucros via rastreabilidade nas Ordens de Serviço",
+      "Evitou perda de veículos no fluxo de pátio"
+    ],
+    "subjectiveJudgment": [
+      "Visão pragmática de tecnologia como salvadora da oficina"
+    ]
+  }
+}

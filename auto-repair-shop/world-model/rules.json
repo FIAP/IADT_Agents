@@ -1,0 +1,52 @@
+{
+  "rules": [
+    {
+      "ruleId": "os-status-flow",
+      "description": "Uma Ordem de Serviço (OS) deve seguir ESTRITAMENTE o fluxo: Recebida -> Em diagnóstico -> Aguardando aprovação -> Em execução -> Finalizada -> Entregue",
+      "type": "mandatory-process",
+      "appliesTo": ["all_repairs"]
+    },
+    {
+      "ruleId": "customer-approval-required",
+      "description": "Nenhum conserto ou uso de 'Insumos' pode começar sem o orçamento assinado pelo cliente. A OS deve sair de 'Aguardando aprovação' para 'Em execução'",
+      "type": "mandatory-process",
+      "condition": "before_repair_start",
+      "action": "require_customer_signature"
+    },
+    {
+      "ruleId": "inventory-consume-rule",
+      "description": "Um mecânico NUNCA pode aplicar peças ou insumos no veículo se a OS não estiver oficialmente no status 'Em execução'",
+      "type": "system-policy",
+      "condition": "mechanic_parts_usage",
+      "action": "verify_os_status_em_execucao"
+    },
+    {
+      "ruleId": "attendant-billing-rule",
+      "description": "A fatura só pode ser cobrada do CPF/CNPJ do cliente quando o status da Ordem de Serviço atingir 'Finalizada'",
+      "type": "business-policy",
+      "condition": "billing_time",
+      "action": "verify_os_status_finalizada"
+    },
+    {
+      "ruleId": "approval-threshold",
+      "description": "Reparos e Insumos acima de R$ 500 precisam ser aprovados também pelo Dono antes de serem apresentados ao cliente",
+      "type": "approval-dependency",
+      "condition": "repair_cost > 500",
+      "action": "require_owner_approval"
+    },
+    {
+      "ruleId": "attendant-limit",
+      "description": "A Atendente pode transitar OS de 'Em diagnóstico' para 'Aguardando aprovação' sozinha se os valores de reparo forem de até R$ 200",
+      "type": "authorization-limit",
+      "condition": "repair_cost <= 200",
+      "action": "attendant_can_approve"
+    },
+    {
+      "ruleId": "diagnostic-fee",
+      "description": "Taxa de diagnóstico (R$ 85) é abonada se a OS prosseguir para 'Em Execução'",
+      "type": "pricing-rule",
+      "condition": "repair_approved",
+      "action": "waive_diagnostic_fee"
+    }
+  ]
+}

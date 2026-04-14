@@ -1,0 +1,51 @@
+{
+  "scenarioId": "diagnostic-challenge",
+  "name": "Desafio de Diagnóstico Incerto",
+  "description": "Um cliente traz um Honda Civic 2015 cujo motor engasga às vezes, apenas em marcha lenta. O mecânico não consegue identificar prontamente a causa real. O estudante deve navegar na incerteza do diagnóstico, lidar com as expectativas do cliente e criar decisões em relação aos custos do que fazer primeiro.",
+  "learningObjectives": [
+    "Lidar com a incerteza de maneira profissional sem fabricar mentiras",
+    "Apresentar restrições técnicas a leigos com clareza",
+    "Ponderar profundidade das averiguações frente aos limites finaceiros do cliente",
+    "Compreender como transitar os processos de aprovação com múltiplos membros",
+    "Criar uma trilha racional sobre o uso de dinheiro vs tentativas"
+  ],
+  "initialState": {
+    "customer_vehicle": "Honda Civic 2015, 85.000 km",
+    "reported_problem": "O motor perde a força em marcha lenta as vezes. Começou tem 2Semanas",
+    "customer_priority": "Precisa da confiabilidade pois viaja 60km por dia",
+    "customer_budget": "moderado (R$ 400 - R$ 800)",
+    "initial_diagnostic_status": "pendente",
+    "parts_availability": "normal",
+    "shop_capacity": "Disponibilidade de 1 box hoje"
+  },
+  "availableExperts": ["mechanic", "attendant", "owner"],
+  "triggeringEvents": [
+    {
+      "event": "initial_diagnostic_complete",
+      "condition": "mechanic_consulted",
+      "stateChange": "Foram identificadas diversas origens prováveis: Válvula lenta, Bicos injetores e Válvula EGR"
+    },
+    {
+      "event": "customer_cost_concern",
+      "condition": "estimate_presented",
+      "stateChange": "Cliente questiona se vale a pena mesmo pagar por toda essa 'procura' e que não quer testes infinitos"
+    },
+    {
+      "event": "scope_expansion",
+      "condition": "repair_approved_and_started",
+      "stateChange": "Mecânico descobre velas estragadas e superaquecidas durante os testes preliminares"
+    }
+  ],
+  "successCriteria": [
+    "Aluno dita qual investigação realizar primeira via custo probabilidade (bicos vs válvulas)",
+    "Aluno repassa o nível de incerteza a pessoa via atendente de forma clara",
+    "Aluno registra pelo menos duas consultas com entidades variadas em log",
+    "Aluno é capaz de construir lógica na /decisao baseada em Custo-Investigação"
+  ],
+  "challenges": [
+    "Problemas intermitentes não dão no box, apenas na rua com cliente",
+    "Testar as 3 suspeitas requer testes isolados lentos, gastando tempo",
+    "A grana do cliente impossibilita trocar os 3 itens logo de cara",
+    "Não dá para assumir a garantia e sucesso de uma correção avulsa"
+  ]
+}

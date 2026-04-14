@@ -1,0 +1,79 @@
+{
+  "flows": [
+    {
+      "flowId": "standard-repair",
+      "name": "Standard Repair Process",
+      "steps": [
+        {
+          "step": 1,
+          "actor": "attendant",
+          "action": "Receive customer and vehicle, collect problem description and contact info",
+          "outputs": ["Service request form", "Customer contact info", "Vehicle details"]
+        },
+        {
+          "step": 2,
+          "actor": "mechanic",
+          "action": "Perform initial diagnostic and prepare repair estimate",
+          "outputs": ["Diagnostic report", "Repair estimate with itemized costs", "Timeline estimate"]
+        },
+        {
+          "step": 3,
+          "actor": "attendant",
+          "action": "Present estimate to customer and obtain approval or rejection",
+          "outputs": ["Customer approval or rejection", "Signed estimate if approved"]
+        },
+        {
+          "step": 4,
+          "actor": "owner",
+          "action": "Review and approve estimates exceeding $500 (escalated from step 3)",
+          "outputs": ["Owner approval or counter-offer"]
+        },
+        {
+          "step": 5,
+          "actor": "mechanic",
+          "action": "Execute approved repairs and perform quality check",
+          "outputs": ["Completed repairs", "Quality inspection record", "Parts used"]
+        },
+        {
+          "step": 6,
+          "actor": "attendant",
+          "action": "Process payment and return vehicle to customer",
+          "outputs": ["Payment receipt", "Warranty documentation", "Customer satisfaction confirmation"]
+        }
+      ],
+      "dependencies": [
+        "Customer approval required before step 5 (mechanic cannot begin without it)",
+        "Owner approval required for estimates exceeding $500 (step 4 before step 5)",
+        "Parts must be available before step 5 can begin"
+      ]
+    },
+    {
+      "flowId": "diagnostic-only",
+      "name": "Diagnostic-Only Process",
+      "steps": [
+        {
+          "step": 1,
+          "actor": "attendant",
+          "action": "Receive customer and explain diagnostic fee policy",
+          "outputs": ["Service request", "Fee agreement"]
+        },
+        {
+          "step": 2,
+          "actor": "mechanic",
+          "action": "Perform comprehensive diagnostic and document findings",
+          "outputs": ["Detailed diagnostic report", "Recommended repair list", "Priority assessment"]
+        },
+        {
+          "step": 3,
+          "actor": "attendant",
+          "action": "Present diagnostic results and repair recommendations to customer",
+          "outputs": ["Customer decision on which repairs to approve"]
+        }
+      ],
+      "dependencies": [
+        "Diagnostic fee is waived if customer approves any recommended repair",
+        "Customer can choose to take vehicle elsewhere after receiving diagnostic report"
+      ]
+    }
+  ]
+}

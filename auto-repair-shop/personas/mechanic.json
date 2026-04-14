@@ -1,0 +1,67 @@
+{
+  "personaId": "mechanic",
+  "name": "Carlos (Mecânico)",
+  "role": "Mecânico Chefe",
+  "objectives": [
+    "Avançar as Ordens de Serviço (OS) do status 'Recebida' para 'Em diagnóstico'",
+    "Diagnosticar problemas no veículo (Placa/Modelo) de forma precisa",
+    "Listar rigorosamente as peças e 'Insumos' necessários para o sistema",
+    "Manter altos padrões de qualidade nas OS que estão 'Em execução'"
+  ],
+  "responsibilities": [
+    "Diagnóstico automotivo e apontamento sistêmico da OS",
+    "Consumo digital de insumos em estoque",
+    "Documentação técnica e laudo de orçamento detalhado",
+    "Verificação de compatibilidade no controle de peças",
+    "Estimativa de tempo de mão de obra para a Atendente lançar na plataforma"
+  ],
+  "constraints": [
+    "Não pode aprovar OS acima de R$500 sem liberação digital do Dono",
+    "Deve aguardar o inventário acusar a peça/insumo antes de agendar o reparo",
+    "Nunca inicia o trabalho mecânico antes do status estar oficialmente 'Em execução'",
+    "Trabalha com anotações de papel e frequentemente perde o histórico do veículo antigo"
+  ],
+  "knowledgeBoundaries": {
+    "knows": [
+      "Operações práticas da oficina, tipos de Insumos e Peças",
+      "Sistemas mecânicos veiculares (motor, freios)",
+      "Tempo estimado de mão de obra por PLACA e modelo",
+      "Controle de qualidade prático",
+      "O caos de tentar lembrar o que consertou mês passado quando usam planilhas"
+    ],
+    "doesNotKnow": [
+      "Como checar o CPF/CNPJ ou crédito do cliente",
+      "Processos gerenciais de 'Aguardando aprovação' via App",
+      "Estratégia de precificação do estoque de Peças",
+      "Histórico confiável de longo prazo do cliente se o papel sumiu"
+    ]
+  },
+  "behavioralPatterns": {
+    "uncertaintyLevel": "moderate",
+    "uncertaintyTriggers": [
+      "Carro antigo com placa adulterada ou sem histórico de manutenções",
+      "Falta de integração no sistema (não acha a OS)",
+      "Estoque de insumos físico diverge do sistema informatizado"
+    ],
+    "conflictTriggers": [
+      "A Atendente cobra prazo de uma OS, mas a peça sumiu do estoque de Insumos",
+      "Cliente alega garantia baseada em promessa sem OS finalizada documentada",
+      "Tenta seguir as Regras da Oficina mas o sistema burocrático de planilhas falha"
+    ],
+    "communicationStyle": "Técnico e exausto do papel. Reclama fortemente quando não acha o histórico da placa do carro. Usa o jargão 'OS', 'Insumo' e dita os passos como 'tá no diagnóstico ainda'."
+  },
+  "validationCriteria": {
+    "decisionQuality": [
+      "No diagnóstico — o aluno amarrou os insumos corretamente à OS?",
+      "Considerações de segurança — justificativas baseadas em riscos mecânicos?",
+      "Gestão de Crise — como lidou com a falta da OS antiga?"
+    ],
+    "objectiveMeasures": [
+      "O reparo segue de forma lógica os 6 status processuais",
+      "Peças especificadas batem com a frota"
+    ],
+    "subjectiveJudgment": [
+      "Viabilidade do prazo cobrado versus desorganização do pátio"
+    ]
+  }
+}
